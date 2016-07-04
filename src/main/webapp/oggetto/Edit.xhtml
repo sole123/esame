@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="OggettoEditDlg" widgetVar="OggettoEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditOggettoTitle}">
+            <h:form id="OggettoEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{oggettoController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditOggettoLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{oggettoController.selected.id}" title="#{bundle.EditOggettoTitle_id}" />
+                        <p:outputLabel value="#{bundle.EditOggettoLabel_nome}" for="nome" />
+                        <p:inputText id="nome" value="#{oggettoController.selected.nome}" title="#{bundle.EditOggettoTitle_nome}" />
+                        <p:outputLabel value="#{bundle.EditOggettoLabel_descrizione}" for="descrizione" />
+                        <p:inputText id="descrizione" value="#{oggettoController.selected.descrizione}" title="#{bundle.EditOggettoTitle_descrizione}" />
+                        <p:outputLabel value="#{bundle.EditOggettoLabel_img}" for="img" />
+                        <p:inputText id="img" value="#{oggettoController.selected.img}" title="#{bundle.EditOggettoTitle_img}" />
+                        <p:outputLabel value="#{bundle.EditOggettoLabel_proprietario}" for="proprietario" />
+                        <p:inputText id="proprietario" value="#{oggettoController.selected.proprietario}" title="#{bundle.EditOggettoTitle_proprietario}" />
+                        <p:outputLabel value="#{bundle.EditOggettoLabel_datascadenza}" for="datascadenza" />
+                        <p:calendar id="datascadenza" pattern="MM/dd/yyyy HH:mm:ss" value="#{oggettoController.selected.datascadenza}" title="#{bundle.EditOggettoTitle_datascadenza}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditOggettoLabel_nomeacquirente}" for="nomeacquirente" />
+                        <p:inputText id="nomeacquirente" value="#{oggettoController.selected.nomeacquirente}" title="#{bundle.EditOggettoTitle_nomeacquirente}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{oggettoController.update}" value="#{bundle.Save}" update="display,:OggettoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'OggettoEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="OggettoEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

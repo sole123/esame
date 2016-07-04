@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="OffertaEditDlg" widgetVar="OffertaEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditOffertaTitle}">
+            <h:form id="OffertaEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{offertaController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditOffertaLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{offertaController.selected.id}" title="#{bundle.EditOffertaTitle_id}" />
+                        <p:outputLabel value="#{bundle.EditOffertaLabel_utente}" for="utente" />
+                        <p:selectOneMenu id="utente" value="#{offertaController.selected.utente}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{utenteController.itemsAvailableSelectOne}"
+                                           var="utenteItem"
+                                           itemValue="#{utenteItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditOffertaLabel_oggetto}" for="oggetto" />
+                        <p:selectOneMenu id="oggetto" value="#{offertaController.selected.oggetto}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{oggettoController.itemsAvailableSelectOne}"
+                                           var="oggettoItem"
+                                           itemValue="#{oggettoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditOffertaLabel_importoOfferta}" for="importoOfferta" />
+                        <p:inputText id="importoOfferta" value="#{offertaController.selected.importoOfferta}" title="#{bundle.EditOffertaTitle_importoOfferta}" />
+                        <p:outputLabel value="#{bundle.EditOffertaLabel_dataOfferta}" for="dataOfferta" />
+                        <p:inputText id="dataOfferta" value="#{offertaController.selected.dataOfferta}" title="#{bundle.EditOffertaTitle_dataOfferta}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{offertaController.update}" value="#{bundle.Save}" update="display,:OffertaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'OffertaEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="OffertaEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

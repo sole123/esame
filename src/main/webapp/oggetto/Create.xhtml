@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="OggettoCreateDlg" widgetVar="OggettoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateOggettoTitle}">
+            <h:form id="OggettoCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{oggettoController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateOggettoLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{oggettoController.selected.id}" title="#{bundle.CreateOggettoTitle_id}" />
+                        <p:outputLabel value="#{bundle.CreateOggettoLabel_nome}" for="nome" />
+                        <p:inputText id="nome" value="#{oggettoController.selected.nome}" title="#{bundle.CreateOggettoTitle_nome}" />
+                        <p:outputLabel value="#{bundle.CreateOggettoLabel_descrizione}" for="descrizione" />
+                        <p:inputText id="descrizione" value="#{oggettoController.selected.descrizione}" title="#{bundle.CreateOggettoTitle_descrizione}" />
+                        <p:outputLabel value="#{bundle.CreateOggettoLabel_img}" for="img" />
+                        <p:inputText id="img" value="#{oggettoController.selected.img}" title="#{bundle.CreateOggettoTitle_img}" />
+                        <p:outputLabel value="#{bundle.CreateOggettoLabel_proprietario}" for="proprietario" />
+                        <p:inputText id="proprietario" value="#{oggettoController.selected.proprietario}" title="#{bundle.CreateOggettoTitle_proprietario}" />
+                        <p:outputLabel value="#{bundle.CreateOggettoLabel_datascadenza}" for="datascadenza" />
+                        <p:calendar id="datascadenza" pattern="MM/dd/yyyy HH:mm:ss" value="#{oggettoController.selected.datascadenza}" title="#{bundle.EditOggettoTitle_datascadenza}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateOggettoLabel_nomeacquirente}" for="nomeacquirente" />
+                        <p:inputText id="nomeacquirente" value="#{oggettoController.selected.nomeacquirente}" title="#{bundle.CreateOggettoTitle_nomeacquirente}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{oggettoController.create}" value="#{bundle.Save}" update="display,:OggettoListForm:datalist,:growl" oncomplete="handleSubmit(args,'OggettoCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="OggettoCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

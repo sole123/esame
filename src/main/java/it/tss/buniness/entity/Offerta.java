@@ -25,9 +25,9 @@ public class Offerta implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne
-    private String Utente;
+    private Utente utente;
     @ManyToOne
-    private String Oggetto;
+    private Oggetto oggetto;
     private Float importoOfferta;
     private Date dataOfferta;
 
@@ -42,20 +42,20 @@ public class Offerta implements Serializable{
         this.id = id;
     }
 
-    public String getUtente() {
-        return Utente;
+    public Utente getUtente() {
+        return utente;
     }
 
-    public void setUtente(String Utente) {
-        this.Utente = Utente;
+    public void setUtente(Utente utente) {
+        this.utente = utente;
     }
 
-    public String getOggetto() {
-        return Oggetto;
+    public Oggetto getOggetto() {
+        return oggetto;
     }
 
-    public void setOggetto(String Oggetto) {
-        this.Oggetto = Oggetto;
+    public void setOggetto(Oggetto oggetto) {
+        this.oggetto = oggetto;
     }
 
     public Float getImportoOfferta() {
@@ -101,8 +101,9 @@ public class Offerta implements Serializable{
 
     @Override
     public String toString() {
-        return "Offerta{" + "Utente=" + Utente + ", Oggetto=" + Oggetto + ", importoOfferta=" + importoOfferta + ", dataOfferta=" + dataOfferta + '}';
+        return "Offerta{" + "id=" + id + ", utente=" + utente + ", oggetto=" + oggetto + ", importoOfferta=" + importoOfferta + ", dataOfferta=" + dataOfferta + '}';
     }
+
     
     
     

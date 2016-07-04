@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="OggettoViewDlg" widgetVar="OggettoViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewOggettoTitle}">
+            <h:form id="OggettoViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{oggettoController.selected != null}">
+                        <h:outputText value="#{bundle.ViewOggettoLabel_id}"/>
+                        <h:outputText value="#{oggettoController.selected.id}" title="#{bundle.ViewOggettoTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewOggettoLabel_nome}"/>
+                        <h:outputText value="#{oggettoController.selected.nome}" title="#{bundle.ViewOggettoTitle_nome}"/>
+                        <h:outputText value="#{bundle.ViewOggettoLabel_descrizione}"/>
+                        <h:outputText value="#{oggettoController.selected.descrizione}" title="#{bundle.ViewOggettoTitle_descrizione}"/>
+                        <h:outputText value="#{bundle.ViewOggettoLabel_img}"/>
+                        <h:outputText value="#{oggettoController.selected.img}" title="#{bundle.ViewOggettoTitle_img}"/>
+                        <h:outputText value="#{bundle.ViewOggettoLabel_proprietario}"/>
+                        <h:outputText value="#{oggettoController.selected.proprietario}" title="#{bundle.ViewOggettoTitle_proprietario}"/>
+                        <h:outputText value="#{bundle.ViewOggettoLabel_datascadenza}"/>
+                        <h:outputText value="#{oggettoController.selected.datascadenza}" title="#{bundle.ViewOggettoTitle_datascadenza}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewOggettoLabel_nomeacquirente}"/>
+                        <h:outputText value="#{oggettoController.selected.nomeacquirente}" title="#{bundle.ViewOggettoTitle_nomeacquirente}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="OggettoViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
