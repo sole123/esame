@@ -13,13 +13,13 @@
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{utenteController.selected != null}">
                         
-                        <p:outputLabel value="#{bundle.CreateUtenteLabel_nome}" for="nome" />
+                        <p:outputLabel value="Nome" for="nome" />
                         <p:inputText id="nome" value="#{utenteController.selected.nome}" title="#{bundle.CreateUtenteTitle_nome}" />
-                        <p:outputLabel value="#{bundle.CreateUtenteLabel_cognome}" for="cognome" />
+                        <p:outputLabel value="Cognome" for="cognome" />
                         <p:inputText id="cognome" value="#{utenteController.selected.cognome}" title="#{bundle.CreateUtenteTitle_cognome}" />
-                        <p:outputLabel value="#{bundle.CreateUtenteLabel_email}" for="email" />
+                        <p:outputLabel value="Email" for="email" />
                         <p:inputText id="email" value="#{utenteController.selected.email}" title="#{bundle.CreateUtenteTitle_email}" />
-                        <p:outputLabel value="#{bundle.CreateUtenteLabel_password}" for="password" />
+                        <p:outputLabel value="Password" for="password" />
                         <p:inputText id="password" value="#{utenteController.selected.password}" title="#{bundle.CreateUtenteTitle_password}" />
                     </p:panelGrid>
                     <p:commandButton actionListener="#{utenteController.create}" value="#{bundle.Save}" update="display,:UtenteListForm:datalist,:growl" oncomplete="handleSubmit(args,'UtenteCreateDialog');"/>

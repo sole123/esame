@@ -8,18 +8,18 @@
 
     <ui:composition>
 
-        <p:dialog id="UtenteEditDlg" widgetVar="UtenteEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditUtenteTitle}">
+        <p:dialog id="UtenteEditDlg" widgetVar="UtenteEditDialog" modal="true" resizable="false" appendTo="@(body)" header="modifica">
             <h:form id="UtenteEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{utenteController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditUtenteLabel_id}" for="id" />
-                        <p:inputText id="id" value="#{utenteController.selected.id}" title="#{bundle.EditUtenteTitle_id}" />
-                        <p:outputLabel value="#{bundle.EditUtenteLabel_nome}" for="nome" />
-                        <p:inputText id="nome" value="#{utenteController.selected.nome}" title="#{bundle.EditUtenteTitle_nome}" />
-                        <p:outputLabel value="#{bundle.EditUtenteLabel_cognome}" for="cognome" />
-                        <p:inputText id="cognome" value="#{utenteController.selected.cognome}" title="#{bundle.EditUtenteTitle_cognome}" />
-                        <p:outputLabel value="#{bundle.EditUtenteLabel_email}" for="email" />
-                        <p:inputText id="email" value="#{utenteController.selected.email}" title="#{bundle.EditUtenteTitle_email}" />
+                        <p:outputLabel value="Id" for="id" />
+                        <p:inputText id="id" value="#{utenteController.selected.id}" title="" />
+                        <p:outputLabel value="Nome" for="nome" />
+                        <p:inputText id="nome" value="#{utenteController.selected.nome}" title="Nome" />
+                        <p:outputLabel value="Cognome" for="cognome" />
+                        <p:inputText id="cognome" value="#{utenteController.selected.cognome}" title="Cognome" />
+                        <p:outputLabel value="Email" for="email" />
+                        <p:inputText id="email" value="#{utenteController.selected.email}" title="Email" />
                         <p:outputLabel value="#{bundle.EditUtenteLabel_password}" for="password" />
                         <p:inputText id="password" value="#{utenteController.selected.password}" title="#{bundle.EditUtenteTitle_password}" />
                     </p:panelGrid>

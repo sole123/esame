@@ -37,6 +37,8 @@ public class Oggetto implements Serializable{
     private Date datascadenza;
     @Column(length = 100, nullable = true)
     private String nomeacquirente;
+    @Column(length = 20)
+    private double prezzobase;
 
     public Oggetto() {
     }
@@ -96,6 +98,15 @@ public class Oggetto implements Serializable{
     public void setNomeacquirente(String nomeacquirente) {
         this.nomeacquirente = nomeacquirente;
     }
+
+    public double getPrezzobase() {
+        return prezzobase;
+    }
+
+    public void setPrezzobase(double prezzobase) {
+        this.prezzobase = prezzobase;
+    }
+    
 
     @Override
     public int hashCode() {

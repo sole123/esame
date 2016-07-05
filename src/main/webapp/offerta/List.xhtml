@@ -15,7 +15,7 @@
 
         <ui:define name="body">
                 <h:form id="OffertaListForm">
-                    <p:panel header="#{bundle.ListOffertaTitle}">
+                    <p:panel header="Aste in corso">
                         <p:dataTable id="datalist" value="#{offertaController.items}" var="item"
                             selectionMode="single" selection="#{offertaController.selected}"
                             paginator="true"
@@ -29,31 +29,31 @@
 
                             <p:column>
                                 <f:facet name="header">
-                                    <h:outputText value="#{bundle.ListOffertaTitle_id}"/>
+                                    <h:outputText value="Id Offerta"/>
                                 </f:facet>
                                 <h:outputText value="#{item.id}"/>
                             </p:column>
                             <p:column>
                                 <f:facet name="header">
-                                    <h:outputText value="#{bundle.ListOffertaTitle_utente}"/>
+                                    <h:outputText value="Utente"/>
                                 </f:facet>
                                 <h:outputText value="#{item.utente.nome}"/>
                             </p:column>
                             <p:column>
                                 <f:facet name="header">
-                                    <h:outputText value="#{bundle.ListOffertaTitle_oggetto}"/>
+                                    <h:outputText value="Oggetto"/>
                                 </f:facet>
                                 <h:outputText value="#{item.oggetto.nome}"/>
                             </p:column>
                             <p:column>
                                 <f:facet name="header">
-                                    <h:outputText value="#{bundle.ListOffertaTitle_importoOfferta}"/>
+                                    <h:outputText value="Importo offerta"/>
                                 </f:facet>
                                 <h:outputText value="#{item.importoOfferta}"/>
                             </p:column>
                             <p:column>
                                 <f:facet name="header">
-                                    <h:outputText value="#{bundle.ListOffertaTitle_dataOfferta}"/>
+                                    <h:outputText value="Data offerta"/>
                                 </f:facet>
                                 <h:outputText value="#{item.dataOfferta}">
                                     <f:convertDateTime pattern="MM/dd/yyyy" />
