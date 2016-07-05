@@ -13,6 +13,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -29,7 +31,10 @@ public class Offerta implements Serializable{
     @ManyToOne
     private Oggetto oggetto;
     private Float importoOfferta;
+    @Temporal(TemporalType.DATE)
     private Date dataOfferta;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date dataScadenza;
 
     public Offerta() {
     }
@@ -101,7 +106,7 @@ public class Offerta implements Serializable{
 
     @Override
     public String toString() {
-        return "Offerta{" + "id=" + id + ", utente=" + utente + ", oggetto=" + oggetto + ", importoOfferta=" + importoOfferta + ", dataOfferta=" + dataOfferta + '}';
+        return  "l'utente " + utente  + "offre euro" + importoOfferta + "per l'articolo " + oggetto+ "in data: " + dataOfferta;
     }
 
     

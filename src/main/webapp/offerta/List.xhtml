@@ -14,58 +14,60 @@
         </ui:define>
 
         <ui:define name="body">
-            <h:form id="OffertaListForm">
-                <p:panel header="#{bundle.ListOffertaTitle}">
-                    <p:dataTable id="datalist" value="#{offertaController.items}" var="item"
-                                 selectionMode="single" selection="#{offertaController.selected}"
-                                 paginator="true"
-                                 rowKey="#{item.id}"
-                                 rows="10"
-                                 rowsPerPageTemplate="10,20,30,40,50"
-                                 >
+                <h:form id="OffertaListForm">
+                    <p:panel header="#{bundle.ListOffertaTitle}">
+                        <p:dataTable id="datalist" value="#{offertaController.items}" var="item"
+                            selectionMode="single" selection="#{offertaController.selected}"
+                            paginator="true"
+                            rowKey="#{item.id}"
+                            rows="10"
+                            rowsPerPageTemplate="10,20,30,40,50"
+                            >
 
-                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
-                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+                            <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                            <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
 
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListOffertaTitle_id}"/>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListOffertaTitle_id}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.id}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListOffertaTitle_utente}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.utente.nome}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListOffertaTitle_oggetto}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.oggetto.nome}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListOffertaTitle_importoOfferta}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.importoOfferta}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="#{bundle.ListOffertaTitle_dataOfferta}"/>
+                                </f:facet>
+                                <h:outputText value="#{item.dataOfferta}">
+                                    <f:convertDateTime pattern="MM/dd/yyyy" />
+                                </h:outputText>
+                            </p:column>
+                            <f:facet name="footer">
+                                <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{offertaController.prepareCreate}" update=":OffertaCreateForm" oncomplete="PF('OffertaCreateDialog').show()"/>
+                                <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":OffertaViewForm" oncomplete="PF('OffertaViewDialog').show()" disabled="#{empty offertaController.selected}"/>
+                                <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":OffertaEditForm" oncomplete="PF('OffertaEditDialog').show()" disabled="#{empty offertaController.selected}"/>
+                                <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{offertaController.destroy}" update=":growl,datalist" disabled="#{empty offertaController.selected}"/>
                             </f:facet>
-                            <h:outputText value="#{item.id}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListOffertaTitle_utente}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.utente}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListOffertaTitle_oggetto}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.oggetto}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListOffertaTitle_importoOfferta}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.importoOfferta}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListOffertaTitle_dataOfferta}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.dataOfferta}"/>
-                        </p:column>
-                        <f:facet name="footer">
-                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{offertaController.prepareCreate}" update=":OffertaCreateForm" oncomplete="PF('OffertaCreateDialog').show()"/>
-                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":OffertaViewForm" oncomplete="PF('OffertaViewDialog').show()" disabled="#{empty offertaController.selected}"/>
-                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":OffertaEditForm" oncomplete="PF('OffertaEditDialog').show()" disabled="#{empty offertaController.selected}"/>
-                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{offertaController.destroy}" update=":growl,datalist" disabled="#{empty offertaController.selected}"/>
-                        </f:facet>
-                    </p:dataTable>
-                </p:panel>
-            </h:form>
+                        </p:dataTable>
+                    </p:panel>
+                </h:form>
 
             <ui:include src="Create.xhtml"/>
             <ui:include src="Edit.xhtml"/>

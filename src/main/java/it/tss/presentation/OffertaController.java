@@ -19,12 +19,13 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
+
 @Named("offertaController")
 @SessionScoped
 public class OffertaController implements Serializable {
 
-    @EJB
-    private it.tss.buniness.boundary.OffertaFacade ejbFacade;
+
+    @EJB private it.tss.buniness.boundary.OffertaFacade ejbFacade;
     private List<Offerta> items = null;
     private Offerta selected;
 
@@ -121,7 +122,7 @@ public class OffertaController implements Serializable {
         return getFacade().findAll();
     }
 
-    @FacesConverter(forClass = Offerta.class)
+    @FacesConverter(forClass=Offerta.class)
     public static class OffertaControllerConverter implements Converter {
 
         @Override
@@ -129,7 +130,7 @@ public class OffertaController implements Serializable {
             if (value == null || value.length() == 0) {
                 return null;
             }
-            OffertaController controller = (OffertaController) facesContext.getApplication().getELResolver().
+            OffertaController controller = (OffertaController)facesContext.getApplication().getELResolver().
                     getValue(facesContext.getELContext(), null, "offertaController");
             return controller.getOfferta(getKey(value));
         }

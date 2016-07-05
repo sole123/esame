@@ -21,7 +21,9 @@
                         <h:outputText value="#{bundle.ViewOffertaLabel_importoOfferta}"/>
                         <h:outputText value="#{offertaController.selected.importoOfferta}" title="#{bundle.ViewOffertaTitle_importoOfferta}"/>
                         <h:outputText value="#{bundle.ViewOffertaLabel_dataOfferta}"/>
-                        <h:outputText value="#{offertaController.selected.dataOfferta}" title="#{bundle.ViewOffertaTitle_dataOfferta}"/>
+                        <h:outputText value="#{offertaController.selected.dataOfferta}" title="#{bundle.ViewOffertaTitle_dataOfferta}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="OffertaViewDialog.hide()"/>
                 </h:panelGroup>

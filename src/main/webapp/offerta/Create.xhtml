@@ -12,8 +12,7 @@
             <h:form id="OffertaCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{offertaController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateOffertaLabel_id}" for="id" />
-                        <p:inputText id="id" value="#{offertaController.selected.id}" title="#{bundle.CreateOffertaTitle_id}" />
+                       
                         <p:outputLabel value="#{bundle.CreateOffertaLabel_utente}" for="utente" />
                         <p:selectOneMenu id="utente" value="#{offertaController.selected.utente}" >
                             <f:selectItems value="#{utenteController.itemsAvailableSelectOne}"
@@ -29,7 +28,7 @@
                         <p:outputLabel value="#{bundle.CreateOffertaLabel_importoOfferta}" for="importoOfferta" />
                         <p:inputText id="importoOfferta" value="#{offertaController.selected.importoOfferta}" title="#{bundle.CreateOffertaTitle_importoOfferta}" />
                         <p:outputLabel value="#{bundle.CreateOffertaLabel_dataOfferta}" for="dataOfferta" />
-                        <p:inputText id="dataOfferta" value="#{offertaController.selected.dataOfferta}" title="#{bundle.CreateOffertaTitle_dataOfferta}" />
+                        <p:calendar id="dataOfferta" pattern="MM/dd/yyyy" value="#{offertaController.selected.dataOfferta}" title="#{bundle.EditOffertaTitle_dataOfferta}"  showOn="button"/>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{offertaController.create}" value="#{bundle.Save}" update="display,:OffertaListForm:datalist,:growl" oncomplete="handleSubmit(args,'OffertaCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="OffertaCreateDialog.hide()"/>

@@ -31,7 +31,7 @@
                         <p:outputLabel value="#{bundle.EditOffertaLabel_importoOfferta}" for="importoOfferta" />
                         <p:inputText id="importoOfferta" value="#{offertaController.selected.importoOfferta}" title="#{bundle.EditOffertaTitle_importoOfferta}" />
                         <p:outputLabel value="#{bundle.EditOffertaLabel_dataOfferta}" for="dataOfferta" />
-                        <p:inputText id="dataOfferta" value="#{offertaController.selected.dataOfferta}" title="#{bundle.EditOffertaTitle_dataOfferta}" />
+                        <p:calendar id="dataOfferta" pattern="MM/dd/yyyy" value="#{offertaController.selected.dataOfferta}" title="#{bundle.EditOffertaTitle_dataOfferta}"  showOn="button"/>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{offertaController.update}" value="#{bundle.Save}" update="display,:OffertaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'OffertaEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="OffertaEditDialog.hide()"/>

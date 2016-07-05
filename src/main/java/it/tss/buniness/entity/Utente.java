@@ -12,11 +12,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 /**
  *
  * @author tss
  */
+@NamedQueries({
+    @NamedQuery(name = "Utente.findByUsrPwd",
+            query = "select e from Utente e where e.email= :email and e.password= :password"), 
+    @NamedQuery(name = "Utente.findByNick",
+            query = "select e from Utente e where e.email like :email")})
 @Entity
 public class Utente implements Serializable{
     
@@ -102,7 +109,7 @@ public class Utente implements Serializable{
 
     @Override
     public String toString() {
-        return "Utente{" + "email=" + email + '}';
+        return email ;
     }
     
     

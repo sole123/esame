@@ -6,25 +6,32 @@
       xmlns:p="http://primefaces.org/ui">
 
     <h:head>
-        <title><ui:insert name="title">Default Title</ui:insert></title>
+        <title><ui:insert name="title">Aste On Line</ui:insert></title>
         <h:outputStylesheet library="css" name="jsfcrud.css"/>
         <h:outputScript library="js" name="jsfcrud.js"/>
     </h:head>
 
     <h:body>
 
-        <p:growl id="growl" life="3000" />
+        <p:growl id="growl" autoUpdate="true"/>
 
         <p:layout fullPage="true">
-            <p:layoutUnit position="north" size="65" header="#{bundle.AppName}">
+            <p:layoutUnit position="north" size="65" header="#{bundle.AppName}: WELCOME #{userSession.loggedUser}">
                 <h:form id="menuForm">
                     <p:menubar>
-                        <p:menuitem value="#{bundle.Home}" outcome="/index" icon="ui-icon-home"/>
-                        <p:submenu label="#{bundle.Maintenance}">
-                            <p:menuitem value="Offerta" outcome="/offerta/List.xhtml" />
-                            <p:menuitem value="Oggetto" outcome="/oggetto/List.xhtml" />
-                            <p:menuitem value="Utente" outcome="/utente/List.xhtml" />
+                        <p:submenu label="#{bundle.Home}" icon="ui-icon-home">
+                            <p:menuitem value="Registrati" rendered="#{empty userSession.loggedUser}" oncomplete="PF('UtenteCreateDialog').show()"/>
+                            <p:menuitem value="Login" onclick="PF('LoginDialog').show()" rendered="#{empty userSession.loggedUser}" oncomplete="PF('LoginDialog').show()"/>
+                            <p:menuitem value="Logout" rendered="#{not empty userSession.loggedUser}" oncomplete="PF('cd').show()"/> 
                         </p:submenu>
+                        <p:submenu label="#{bundle.Maintenance}">
+                            <p:menuitem value="Offerte in corso" outcome="/offerta/List.xhtml" />
+                            <p:menuitem value="Oggetti in vendita" outcome="/oggetto/List.xhtml" />
+                            <p:menuitem value="Utenti" outcome="/utente/List.xhtml" />
+                            
+                            
+                        </p:submenu>
+
                     </p:menubar>
                 </h:form>
             </p:layoutUnit>
@@ -38,6 +45,10 @@
             </p:layoutUnit>
 
         </p:layout>
+        <ui:include src="utente/Login.xhtml"/>
+        <ui:include src="utente/Logout.xhtml"/>
+        <ui:include src="utente/Create_menu.xhtml"/>
+        
 
     </h:body>
 

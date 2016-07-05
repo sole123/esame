@@ -124,7 +124,7 @@ public class Oggetto implements Serializable{
 
     @Override
     public String toString() {
-        return "Oggetto{" + "nome=" + nome + ", descrizione=" + descrizione + '}';
+        return  nome + ": " + descrizione;
     }
     
     

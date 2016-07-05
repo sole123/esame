@@ -12,8 +12,7 @@
             <h:form id="OggettoCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{oggettoController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateOggettoLabel_id}" for="id" />
-                        <p:inputText id="id" value="#{oggettoController.selected.id}" title="#{bundle.CreateOggettoTitle_id}" />
+                        
                         <p:outputLabel value="#{bundle.CreateOggettoLabel_nome}" for="nome" />
                         <p:inputText id="nome" value="#{oggettoController.selected.nome}" title="#{bundle.CreateOggettoTitle_nome}" />
                         <p:outputLabel value="#{bundle.CreateOggettoLabel_descrizione}" for="descrizione" />
