@@ -50,7 +50,7 @@ public class Login {
         if (security.login(usr, pwd)) {
             sessionData.setLoggedUser(usr);
            
-            //FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "!", "Login effettuata con successo!"));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "!", "Login effettuata con successo!"));
             return "/index.xhtml?faces-redirect=true";
         }
         FacesContext.getCurrentInstance().

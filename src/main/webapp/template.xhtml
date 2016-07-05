@@ -20,7 +20,7 @@
                 <h:form id="menuForm">
                     <p:menubar>
                         <p:submenu label="#{bundle.Home}" icon="ui-icon-home">
-                            <p:menuitem value="Registrati" rendered="#{empty userSession.loggedUser}" oncomplete="PF('UtenteCreateDialog').show()"/>
+                            <p:menuitem value="Registrati" rendered="#{empty userSession.loggedUser}" oncomplete="PF('CreaUtente').show()"/>
                             <p:menuitem value="Login" onclick="PF('LoginDialog').show()" rendered="#{empty userSession.loggedUser}" oncomplete="PF('LoginDialog').show()"/>
                             <p:menuitem value="Logout" rendered="#{not empty userSession.loggedUser}" oncomplete="PF('cd').show()"/> 
                         </p:submenu>

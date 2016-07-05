@@ -18,6 +18,7 @@ import javax.inject.Named;
 public class SessionData implements Serializable{
     
     private String loggedUser;
+    
 
     public String getLoggedUser() {
         return loggedUser;

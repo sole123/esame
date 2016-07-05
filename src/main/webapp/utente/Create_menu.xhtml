@@ -7,23 +7,23 @@
       xmlns:p="http://primefaces.org/ui">
 
     <ui:composition>
-
-        <p:dialog id="UtenteCreateDlg" widgetVar="UtenteCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateUtenteTitle}">
-            <h:form id="UtenteCreateForm">
+    
+    
+        <p:dialog id="CreaUtente" widgetVar="CreaUtente" modal="true" resizable="false" appendTo="@(body)" header="Inserisci nuovo utente">
+            <h:form >
                 <h:panelGroup id="display">
-                    <p:panelGrid columns="2" rendered="#{utenteController.selected != null}">
-                        
+                    <p:panelGrid columns="2" >
                         <p:outputLabel value="Nome" />
-                        <p:inputText id="nome" value="#{utenteController.selected.nome}"  />
+                        <p:inputText id="nome" value="#{create.nome}"  />
                         <p:outputLabel value="Cognome" />
-                        <p:inputText id="cognome" value="#{utenteController.selected.cognome}" />
+                        <p:inputText id="cognome" value="#{create.cognome}" />
                         <p:outputLabel value="Email" />
-                        <p:inputText id="email" value="#{utenteController.selected.email}" />
+                        <p:inputText id="email" value="#{create.email}" />
                         <p:outputLabel value="Password" />
-                        <p:inputText id="password" value="#{utenteController.selected.password}" />
+                        <p:inputText id="password" value="#{create.password}" />
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{utenteController.create}" value="Salva"  oncomplete="handleSubmit(args,'UtenteCreateDialog');"/>
-                    <p:commandButton value="Cancella" onclick="UtenteCreateDialog.hide()"/>
+                    <p:commandButton actionListener="#{utenteController.create}" value="Salva"  oncomplete="handleSubmit(args,'CreaUtente');"/>
+                    <p:commandButton value="Cancella" onclick="CreaUtente.hide()"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

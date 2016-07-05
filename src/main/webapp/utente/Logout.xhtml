@@ -13,10 +13,10 @@
     <ui:composition>
         <h:panelGroup>
         <h:form>
-            <p:confirmDialog  message="Are you sure you want quit application?"
+            <p:confirmDialog  message="Sicuro di vole effettuare il logout?"
                              header="Logout" severity="alert" 
                              widgetVar="cd">
-                <p:commandButton value="Yes" action="#{logout.onLogout()}" oncomplete="handleSubmit(args, 'cd')"/>
+                <p:commandButton value="Si" action="#{logout.onLogout()}" oncomplete="handleSubmit(args, 'cd')"/>
                 <p:commandButton value="No" onclick="PF('cd').hide()" />
             </p:confirmDialog>
         </h:form>    

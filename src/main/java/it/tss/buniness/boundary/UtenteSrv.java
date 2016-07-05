@@ -31,7 +31,7 @@ public class UtenteSrv {
    
     
     public Utente save(Utente u){
-       // u.setLastUpdate(new Date());
+       
         Utente saved = em.merge(u);
         return saved;
     }

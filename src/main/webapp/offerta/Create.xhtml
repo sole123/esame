@@ -8,17 +8,13 @@
 
     <ui:composition>
 
-        <p:dialog id="OffertaCreateDlg" widgetVar="OffertaCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateOffertaTitle}">
+        <p:dialog id="OffertaCreateDlg" widgetVar="OffertaCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="Fai la tua offerta">
             <h:form id="OffertaCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{offertaController.selected != null}">
                        
                         <p:outputLabel value="#{bundle.CreateOffertaLabel_utente}" for="utente" />
-                        <p:selectOneMenu id="utente" value="#{offertaController.selected.utente}" >
-                            <f:selectItems value="#{utenteController.itemsAvailableSelectOne}"
-                                           var="utenteItem"
-                                           itemValue="#{utenteItem}"/>
-                        </p:selectOneMenu>
+                        <h:outputText id="utente" value="#{userSession.loggedUser}" title="Prova"/>
                         <p:outputLabel value="#{bundle.CreateOffertaLabel_oggetto}" for="oggetto" />
                         <p:selectOneMenu id="oggetto" value="#{offertaController.selected.oggetto}" >
                             <f:selectItems value="#{oggettoController.itemsAvailableSelectOne}"
