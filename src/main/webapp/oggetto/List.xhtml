@@ -72,10 +72,10 @@
                                 <h:outputText value="#{item.nomeacquirente}"/>
                             </p:column>
                             <f:facet name="footer">
-                                <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{oggettoController.prepareCreate}" update=":OggettoCreateForm" oncomplete="PF('OggettoCreateDialog').show()"/>
-                                <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":OggettoViewForm" oncomplete="PF('OggettoViewDialog').show()" disabled="#{empty oggettoController.selected}"/>
-                                <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":OggettoEditForm" oncomplete="PF('OggettoEditDialog').show()" disabled="#{empty oggettoController.selected}"/>
-                                <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{oggettoController.destroy}" update=":growl,datalist" disabled="#{empty oggettoController.selected}"/>
+                                <p:commandButton id="createButton" icon="ui-icon-plus"   value="Inserisci nuovo oggetto" actionListener="#{oggettoController.prepareCreate}" update=":OggettoCreateForm" oncomplete="PF('OggettoCreateDialog').show()"/>
+                                <p:commandButton id="viewButton"   icon="ui-icon-search" value="Visualizza" update=":OggettoViewForm" oncomplete="PF('OggettoViewDialog').show()" disabled="#{empty oggettoController.selected}"/>
+                                <p:commandButton id="editButton"   icon="ui-icon-pencil" value="Modifica" update=":OggettoEditForm" oncomplete="PF('OggettoEditDialog').show()" disabled="#{empty userSession.loggedUser}"/>
+                                <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="Elimina" actionListener="#{oggettoController.destroy}" update=":growl,datalist" disabled="#{empty userSession.loggedUser}"/>
                             </f:facet>
                         </p:dataTable>
                     </p:panel>

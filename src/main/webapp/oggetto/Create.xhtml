@@ -20,7 +20,7 @@
                         <p:outputLabel value="#{bundle.CreateOggettoLabel_img}" for="img" />
                         <p:inputText id="img" value="#{oggettoController.selected.img}" title="#{bundle.CreateOggettoTitle_img}" />
                         <p:outputLabel value="#{bundle.CreateOggettoLabel_proprietario}" for="proprietario" />
-                        <p:inputText id="proprietario" value="#{oggettoController.selected.proprietario}" title="#{bundle.CreateOggettoTitle_proprietario}" />
+                        <p:inputText id="proprietario" value="#{userSession.loggedUser}" title="#{bundle.CreateOggettoTitle_proprietario}" />
                         <p:outputLabel value="#{bundle.CreateOggettoLabel_datascadenza}" for="datascadenza" />
                         <p:calendar id="datascadenza" pattern="MM/dd/yyyy HH:mm:ss" value="#{oggettoController.selected.datascadenza}" title="#{bundle.EditOggettoTitle_datascadenza}"  showOn="button"/>
                         <p:outputLabel value="#{bundle.CreateOggettoLabel_nomeacquirente}" for="nomeacquirente" />
