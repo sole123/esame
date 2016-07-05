@@ -12,8 +12,7 @@
             <h:form id="OffertaViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{offertaController.selected != null}">
-                        <h:outputText value="#{bundle.ViewOffertaLabel_id}"/>
-                        <h:outputText value="#{offertaController.selected.id}" title="#{bundle.ViewOffertaTitle_id}"/>
+                        
                         <h:outputText value="#{bundle.ViewOffertaLabel_utente}"/>
                         <h:outputText value="#{offertaController.selected.utente}" title="#{bundle.ViewOffertaTitle_utente}"/>
                         <h:outputText value="#{bundle.ViewOffertaLabel_oggetto}"/>

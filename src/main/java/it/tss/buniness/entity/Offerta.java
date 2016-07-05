@@ -5,9 +5,12 @@
  */
 package it.tss.buniness.entity;
 
+
+import it.tss.presentation.SessionData;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
+import javax.inject.Inject;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,8 +24,9 @@ import javax.persistence.TemporalType;
  * @author tss
  */
 @Entity
-public class Offerta implements Serializable{
-    
+public class Offerta implements Serializable {
+
+   
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -37,7 +41,14 @@ public class Offerta implements Serializable{
     private Date dataScadenza;
 
     public Offerta() {
+        
     }
+
+    public Offerta(Utente utente) {
+        this.utente = utente;
+    }
+    
+    
 
     public Long getId() {
         return id;
@@ -106,10 +117,7 @@ public class Offerta implements Serializable{
 
     @Override
     public String toString() {
-        return  "l'utente " + utente  + "offre euro" + importoOfferta + "per l'articolo " + oggetto+ "in data: " + dataOfferta;
+        return "l'utente " + utente + "offre euro" + importoOfferta + "per l'articolo " + oggetto + "in data: " + dataOfferta;
     }
 
-    
-    
-    
 }
